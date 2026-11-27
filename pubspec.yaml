@@ -1,0 +1,31 @@
+name: remote_update_gate
+description: >-
+  A force or optional update gate for Flutter, driven by your own API: a custom card, an offline latch for forced updates, and allow-listed download links.
+version: 0.1.0
+homepage: https://kiritex.com
+topics:
+  - update
+  - force-update
+  - app-update
+  - versioning
+  - upgrade
+
+repository: https://github.com/kiritexs/remote_update_gate
+issue_tracker: https://github.com/kiritexs/remote_update_gate/issues
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Only runtime dep: open the download URL. No downloader, no install plugin —
+  # this package never fetches or installs a binary, it redirects.
+  material_ui: ^1.11.0
+  url_launcher: ^6.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
