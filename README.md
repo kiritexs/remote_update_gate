@@ -3,12 +3,24 @@
 Reusable, **API-driven** force / optional update gate for Flutter apps. Redirect
 to a download URL — this package never downloads or installs a binary.
 
-## Why not `upgrader` / store checkers?
+## When to use it
 
-They read the App Store / Play Store listing or need a Sparkle appcast. This
-package is for apps whose **own API** is the source of truth (sideloaded builds,
-private distribution, desktop) and want two **server-controlled version floors**
-(dotted versions such as `1.4.0`) with a **custom card** — reused across apps by implementing two tiny interfaces.
+Choose it when your **own API** decides which versions may run: sideloaded
+builds, private distribution, desktop apps, or any app that needs a kill
+switch.
+
+- Two **server-controlled version floors** (dotted versions such as `1.4.0`):
+  below the recommended one an update can be skipped, below the required one
+  it can't.
+- A forced update survives going offline: the last manifest is kept and
+  applied at start-up before any network call.
+- Update links open only on hosts and store apps you allow, so a tampered
+  config can't send people elsewhere.
+- Your own card and design, reused across apps through two small interfaces.
+
+If your update prompts should come from the App Store and Google Play
+listings instead, [`upgrader`](https://pub.dev/packages/upgrader) is the
+established choice.
 
 ## The model
 
